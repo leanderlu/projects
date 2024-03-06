@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLB Salary Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="salary_predictor.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            justify-content: center;
+            align-items: center;
+            width:1500px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width:800px;
+            text-align:center;
+            margin: auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            font-weight: bold; 
+        }
+
+        input {
+            width: 50%;
+            height:30px;
+            margin:auto;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            height: 45px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight:bold;
+            font-size:17px;
+            margin-bottom:10px;
+            margin-top:7px;
+            width: 35%;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+    <body>
+        <h1>MLB Salary Analyzer</h1>
+        <div class="navbar">
+            <a href="homepage.html">Home</a>
+            <a href="salarypredictor.html">Salary Analyzer</a>
+            <a href="players.html">Cost Efficient Players</a>
+        </div>
+        <form id="playerStatsForm">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" oninput="validateInput(event)"><br><br>
+
+            <label for="bWAR">bWAR (Wins Above Replacement (Baseball Reference)):</label>
+            <input type="text" id="bWAR" name="bWAR" oninput="validateInput(event)"><br><br>
+
+            <label for="drs">DRS (Defensive Runs Saved):</label>
+            <input type="text" id="drs" name="drs" oninput="validateInput(event)"><br><br>
+
+            <label for="xwOBA">xwOBA (Expected Weighted On-Base Average):</label>
+            <input type="text" id="xwOBA" name="xwOBA" oninput="validateInput(event)"><br><br>
+
+            <input type="button" value="Submit" onclick="predictSalary()">
+        </form>
+        <h2>Reasonable Salary: $<span id="predictedSalary">0</span></h2>
+    </body>
+</html>
